@@ -1,0 +1,29 @@
+{
+  "name": "virtual-user-test",
+  "version": "1.0.0",
+  "description": "Simulate virtual users with personal characteristics to test whether a website converts. Hybrid real-navigation sample + mass AI scoring. OpenCode and Claude Code skill.",
+  "keywords": [
+    "virtual-user-testing",
+    "synthetic-users",
+    "persona-testing",
+    "conversion-rate",
+    "ux-testing",
+    "website-testing",
+    "cro",
+    "ab-testing",
+    "opencode-skill",
+    "claude-code-skill",
+    "ai-agent-skill",
+    "user-simulation"
+  ],
+  "author": "facucorona",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facucorona/virtual-user-test.git"
+  },
+  "homepage": "https://github.com/facucorona/virtual-user-test",
+  "bugs": {
+    "url": "https://github.com/facucorona/virtual-user-test/issues"
+  }
+}

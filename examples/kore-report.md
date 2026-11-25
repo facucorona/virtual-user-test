@@ -37,6 +37,8 @@
 
 **Nota de navegación:** de 6 personas que navegaron, 3 dijeron `wouldContinue: true` (con reservas) y 3 `false` (2 por la caída del sitio, 1 por no encontrar portfolio de su rubro). Todas encontraron el CTA del hero en ~5 s y todas coincidieron en que desaparece hasta el ~90%.
 
+**Actualización 2026-11-25:** la caída se reprodujo en una verificación posterior: `net::ERR_CONNECTION_REFUSED` al intentar navegar de nuevo. El servidor de desarrollo no se mantuvo estable bajo navegación concurrente. En producción esto sería un bloqueador total de conversión.
+
 ---
 
 ## ✅ Top 5 recomendaciones

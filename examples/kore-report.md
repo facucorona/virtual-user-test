@@ -23,7 +23,7 @@
 
 ---
 
-## 🔥 Top 5 fricciones (detectadas en navegación real)
+## 🔥 Top 9 fricciones (detectadas en navegación real)
 
 1. **El sitio se cayó durante la navegación.** Al llegar al capítulo 09 apareció un overlay "Console Error" de Next.js (`LiquidMetalNavbar.js`) y luego `ERR_CONNECTION_REFUSED`. El servidor se reinició. Para dos personas fue el golpe final: `wouldContinue: false`.
 2. **CTA ausente durante el 80% del recorrido.** El botón de WhatsApp está en el hero y reaparece recién en el capítulo 09 (~90% del scroll, ~45 s de recorrido). En medio, solo el navbar.
@@ -37,7 +37,14 @@
 
 **Nota de navegación:** de 6 personas que navegaron, 3 dijeron `wouldContinue: true` (con reservas) y 3 `false` (2 por la caída del sitio, 1 por no encontrar portfolio de su rubro). Todas encontraron el CTA del hero en ~5 s y todas coincidieron en que desaparece hasta el ~90%.
 
+6. **Scroll imprevisible.** Es velocity-driven con snap: un gesto de 2300 px aterrizó en 1229 y luego siguió a 1917; otro de 2900 px saltó del capítulo 03 directo al footer (~7983 px). No se puede recorrer el embudo de forma lineal.
+7. **Badge "5 Issues / 7 Issues" de Next.js visible** en la esquina inferior durante todo el recorrido: señal de sitio sin terminar frente a quien evalúa al proveedor.
+8. **Sin analítica ni UTMs.** No hay GA4/GTM/Plausible/PostHog/Clarity en el DOM; los links `wa.me` van al mismo número sin parámetros de campaña. Quien mide tráfico pagado ve todo como "directo". Además dos nombres distintos ("Agendar diagnóstico estratégico" y "Contame tu proyecto") para el mismo destino generan ruido de embudo.
+9. **El sol del render 3D quema "KÓRE STUDIO" en el cierre**, dejándolo casi ilegible.
+
 **Actualización 2026-11-25:** la caída se reprodujo en una verificación posterior: `net::ERR_CONNECTION_REFUSED` al intentar navegar de nuevo. El servidor de desarrollo no se mantuvo estable bajo navegación concurrente. En producción esto sería un bloqueador total de conversión.
+
+**Nota final de navegación (8/8 personas):** 4 dijeron `wouldContinue: true` (con reservas) y 4 `false` (2 por la caída, 1 por no ver portfolio de su rubro, 1 por falta de tracking y UTMs). Todas encontraron el CTA del hero en ~5 s y todas coincidieron en que desaparece hasta el ~90%. Una persona hizo click real en "Contame tu proyecto" y se abrió wa.me correctamente.
 
 ---
 
@@ -51,6 +58,8 @@
 6. **Sacar o traducir el "Subscribe to newsletter" del pie.** Si no hay newsletter real, reemplazarlo por un "Escribinos por WhatsApp" con el mismo número; si la hay, etiquetarla en español y explicar para qué es.
 7. **Hacer visible la progresión.** El hint debería indicar capítulo actual y total (ej. "01 / 10") o una barra de progreso, para que el scroll se sienta Responsive y no como espera a ciegas.
 8. **Desglosar qué incluye cada precio.** Agregar bajo cada item de STACK una línea concreta ("incluye: diseño + desarrollo + publicación + 30 días de ajustes") para convertir el precio en presupuesto comprensible.
+9. **Domar el scroll y sacar el badge de issues.** Limitar el velocity-driven a un capítulo por gesto (o snap suave a capítulos) y desactivar el indicator de dev Issues en producción.
+10. **Agregar analítica y UTMs.** Al menos Plausible o GA4, y parámetros de campaña en los links wa.me; unificar los dos CTAs bajo un mismo nombre.
 
 ---
 
@@ -61,11 +70,11 @@
 | Dueño de pyme cordobesa | alta | media | media |
 | Gerente de marketing | media-alta | baja | media |
 | Founder tech | media | media | alta |
-| Freelancer diseñador | media | media-alta | media |
-| Director de ecommerce | media | alta | media |
+| Freelancer diseñador | media-alta (valora identidad y casos reales) | media | media |
+| Director de ecommerce | baja (sin analítica ni UTMs es un bloqueador) | alta | media |
 | Dueño de negocio tradicional | baja | alta | media |
 
-> El segmento tradicional es el que peor convierte: lenguaje técnico + estética fría + precios en USD.
+> El segmento tradicional es el que peor convierte: lenguaje técnico + estética fría + precios en USD. El de ecommerce se cae por la falta de tracking. El de diseño valora la identidad pero penaliza el menú roto.
 
 ---
 
@@ -78,6 +87,10 @@
 > "Mirá, al principio vi el botoncito de WhatsApp y me pareció bien, pero después me quedé en la oscuridad y no sabía si había más o ya estaba todo. Las palabras se me juntan y el menú no me lleva a ningún lado. Igual el WhatsApp funciona y al final lo encontré, así que le doy una oportunidad." — Persona 1, dueño de pyme cordobesa
 
 > "El mensaje de problemas de negocio y soluciones está bien, y los pasos de trabajo se entienden. Pero entre tanta animación y letras pegadas, no termino de ver la seriedad que uno espera de un estudio. El WhatsApp al final funciona, pero me gustaría que estuviera presente en todo el recorrido." — Persona 2, gerente de marketing
+
+> "La identidad está muy bien resuelta: se nota que hay criterio detrás y que los casos son reales, no stock. Pero me molesta que 'Inicio', 'Servicios' y 'Trabajos' no me lleven a ningún lado, y que el contacto desaparezca justo cuando quiero ver el portfolio." — Persona 7, freelancer diseñadora
+
+> "El hero comunica bien y el WhatsApp está a mano, pero necesito ver cómo mido las campañas: no hay ningún tag y los links no tienen UTM, así que todo el tráfico va a llegar como 'directo'. Además 'Agendar diagnóstico' y 'Contame tu proyecto' son el mismo número con dos nombres distintos; eso me genera ruido en el funnel." — Persona 8, directora de ecommerce
 
 > (Del scoring) "Los precios están claros y el proceso en 5 pasos me da confianza, pero necesito ver un caso parecido al mio antes de escribirle por WhatsApp." — Persona 12, gerente de marketing
 
